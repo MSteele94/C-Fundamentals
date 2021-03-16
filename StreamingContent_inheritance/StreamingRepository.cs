@@ -41,7 +41,7 @@ namespace StreamingContent_inheritance
         public List<Show> GetAllShows()
         {
 
-            //use this to add our shows -> starts empty (we will return this list)
+            //use this to add our shows -> starts empty (we will return this list)   empty != null. null is the absence of any value
             List<Show> allShows = new List<Show>();
             foreach (StreamingContent content in _contentDirectory)
             {
@@ -54,5 +54,27 @@ namespace StreamingContent_inheritance
             }
             return allShows;
         }
+        //Read get all movies
+        public List<Movie> GetAllMovies()
+        {
+            List<Movie> allMovies = new List<Movie>();
+            {
+                foreach (StreamingContent content in _contentDirectory)
+                {
+                    if(content is Movie)
+                    {
+                        allMovies.Add(content as Movie);
+                    }
+                }
+                return allMovies;
+            }
+        //get by runtim/Average runtime
+        //get shows with over x episodes
+        //Get shows / movie by rating
+
+
     }
+
+
+        }
 }
